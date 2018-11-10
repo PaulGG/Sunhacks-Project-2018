@@ -10,24 +10,15 @@
   <section class="section">
       <div class="columns">
         <div class="column" v-for="restaurant in restaurants" v-bind:key="restaurant.id">
-          <div class="card">
-            <p class="title">{{ restaurant.name}}</p>
-            <p class='subtitle'>{{ restaurant.created_at.toDateString() }}</p>
-            <p><img v-bind:src="restaurant.imgSrc" v-bind:alt="restaurant.name" width="250px" height="250px" style="border-radius: 20px;"/></p>
+          <div class="card" @click="clickMethod()">
+            <center>
+              <p class="title">{{ restaurant.name}}</p>
+              <p class='subtitle'>{{ restaurant.created_at.toDateString() }}</p>
+              <p><img v-bind:src="restaurant.imgSrc" v-bind:alt="restaurant.name" width="100px" height="100px" style="border-radius: 20px;"/></p>
+            </center>
           </div>
         </div>
       </div>
-            <!--
-    <div class="container">
-      <div class="card" v-for="restaurant in restaurants" v-bind:key="restaurant.id">
-        <div class="card-content">
-          <p class="title">{{ restaurant.name}}</p>
-          <p class='subtitle'>{{ restaurant.created_at.toDateString() }}</p>
-          <p><img v-bind:src="restaurant.imgSrc" v-bind:alt="restaurant.name" width="250px" height="250px" style="border-radius: 20px;"/></p>
-        </div>
-      </div>
-    </div>
-    -->
   </section>
 </div>  
 </template>  
@@ -35,47 +26,6 @@
 export default {  
   data() {
     return {
-      surveys: [{
-      id: 1,
-      name: 'Dogs',
-      created_at: new Date(2017, 12, 1),
-      questions: [
-        {
-          id: 1,
-          text: 'What is your favorite dog?',
-          choices: [
-            { id: 1, text: 'Beagle', selected: 0 },
-            { id: 2, text: 'Labrador', selected: 0 },
-            { id: 3, text: 'Rottweiler', selected: 0 }]
-        }, {
-          id: 2,
-          text: 'What is your second favorite dog?',
-          choices: [
-            { id: 5, text: 'Beagle', selected: 0 },
-            { id: 6, text: 'Labrador', selected: 0 },
-            { id: 7, text: 'Rottweiler', selected: 0 }]
-        }]
-      }, {
-        id: 2,
-        name: 'Cars',
-        created_at: new Date(2017, 12, 3),
-        questions: [
-          {
-            id: 5,
-            text: 'What is your favorite car?',
-            choices: [
-              { id: 17, text: 'Corvette', selected: 0 },
-              { id: 18, text: 'Mustang', selected: 0 },
-              { id: 19, text: 'Camaro', selected: 0 }]
-          }, {
-            id: 6,
-            text: 'What is your second favorite car?',
-            choices: [
-              { id: 21, text: 'Corvette', selected: 0 },
-              { id: 22, text: 'Mustang', selected: 0 },
-              { id: 23, text: 'Camaro', selected: 0 }]
-          }]
-      }],
       restaurants: [{
       id: 1,
       name: 'McDonalds',
@@ -85,7 +35,7 @@ export default {
       id: 2,
       name: 'Taco Bell',
       created_at: new Date(),
-      imgSrc: 'https://vignette.wikia.nocookie.net/logopedia/images/b/b3/Taco_Bell_2016.svg/revision/latest/scale-to-width-down/200?cb=20180430111400'
+      imgSrc: 'https://www.tacobell.com/medias/Taco-Bell-Logo-Bell-Only2.svg?context=bWFzdGVyfGltYWdlc3wyNTk0fGltYWdlL3N2Zyt4bWx8aW1hZ2VzL2gxNi9oM2YvODgyNTMyNjE3NDIzOC5zdmd8MTg2NWZhODE0YTA1ZWNiZWMyMzc5YmQ3MDQzN2U1OTJjYmUwMzFhNTAzMGRhNWNjODFkMGIyOTE1OTJmZTE0MQ'
       }, {
       id: 3,
       name: 'Burger King',
@@ -93,6 +43,16 @@ export default {
       imgSrc: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Burger_King_Logo.svg/1024px-Burger_King_Logo.svg.png'
       }]
     }
+  },
+  methods: {
+    clickMethod() {
+      console.log("fuck")
+    } 
   }
+
 }
 </script>
+
+<style>
+  @import 'Home.css';
+</style>

@@ -1,0 +1,11 @@
+.is-danger {
+    background-color: #B80C09
+}
+
+.card {
+    height: 100%;
+}
+
+.card:hover {
+    background-color: #F18F01;
+}
