@@ -8,8 +8,16 @@
     </div>
   </section>
   <section class="section">
-      
-      <!--
+      <div class="columns">
+        <div class="column" v-for="restaurant in restaurants" v-bind:key="restaurant.id">
+          <div class="card">
+            <p class="title">{{ restaurant.name}}</p>
+            <p class='subtitle'>{{ restaurant.created_at.toDateString() }}</p>
+            <p><img v-bind:src="restaurant.imgSrc" v-bind:alt="restaurant.name" width="250px" height="250px" style="border-radius: 20px;"/></p>
+          </div>
+        </div>
+      </div>
+            <!--
     <div class="container">
       <div class="card" v-for="restaurant in restaurants" v-bind:key="restaurant.id">
         <div class="card-content">
