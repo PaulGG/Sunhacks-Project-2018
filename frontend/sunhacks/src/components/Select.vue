@@ -12,13 +12,29 @@
         <div class="card">
             <center>
                 <p class="title">Enter Location (PIN):</p>
-                <input v-model="message" placeholder="Enter PIN">
-                <a class="button">Go!</a>
+                <div class="columns is-centered">
+                    <div class="column is-one-fifth">
+                        <input v-model="message" placeholder="Enter PIN">
+                    </div>
+                    <div class="column is-one-fifth">
+                        <a class="button is-rounded" @click="changePage()">Go!</a>
+                    </div>
+                </div>
             </center>
         </div>
   </section>
 </div>  
 </template>  
+
+<script>
+export default{
+    methods: {
+        changePage() {
+            this.$router.push('/')
+        }
+    }
+}
+</script>
 
 <style>
   @import 'Select.css';
