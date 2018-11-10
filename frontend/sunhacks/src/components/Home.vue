@@ -1,6 +1,6 @@
 <template>  
 <div>  
-  <section class="hero is-primary">
+  <section class="hero is-danger is-bold">
     <div class="hero-body">
       <div class="container has-text-centered">
         <h2 class="title">Pick A Restaurant</h2>
@@ -8,15 +8,18 @@
     </div>
   </section>
   <section class="section">
+      
+      <!--
     <div class="container">
       <div class="card" v-for="restaurant in restaurants" v-bind:key="restaurant.id">
         <div class="card-content">
           <p class="title">{{ restaurant.name}}</p>
           <p class='subtitle'>{{ restaurant.created_at.toDateString() }}</p>
-          <p><img v-bind:src="restaurant.imgSrc" v-bind:alt="restaurant.name"/></p>
+          <p><img v-bind:src="restaurant.imgSrc" v-bind:alt="restaurant.name" width="250px" height="250px" style="border-radius: 20px;"/></p>
         </div>
       </div>
     </div>
+    -->
   </section>
 </div>  
 </template>  
