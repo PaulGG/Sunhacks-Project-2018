@@ -1,5 +1,11 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    background-color: hsl(0, 0%, 29%)
+}
+
 .is-danger {
-    background-color: #B80C09
+    background-color: #B80C09;
 }
 
 .card {
@@ -8,4 +14,8 @@
 
 .card:hover {
     background-color: #F18F01;
+}
+
+.columns {
+    flex: 1 1 auto;
 }

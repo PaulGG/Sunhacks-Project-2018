@@ -7,7 +7,7 @@
       </div>
     </div>
   </section>
-  <section class="section">
+  <section class="section has-background-grey-dark is-large">
       <div class="columns">
         <div class="column" v-for="restaurant in restaurants" v-bind:key="restaurant.id">
           <div class="card" @click="clickMethod()">
