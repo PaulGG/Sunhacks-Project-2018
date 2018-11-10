@@ -23,7 +23,7 @@
 </div>  
 </template>  
 <script>
-import {MapState} from 'vuex'
+import { mapState } from 'vuex'
 export default { 
     computed: mapState({
         restaurants: state => state.restaurants
