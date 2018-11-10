@@ -54,7 +54,8 @@ export default {
   },*/
   methods: {
     clickMethod() {
-      console.log("fuck")
+      //TODO change functionality to be not wrong
+      this.$router.push('/select')
     } 
   } 
 
