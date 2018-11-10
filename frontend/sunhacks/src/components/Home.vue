@@ -23,7 +23,15 @@
 </div>  
 </template>  
 <script>
-export default {  
+import {MapState} from 'vuex'
+export default { 
+    computed: mapState({
+        restaurants: state => state.restaurants
+    }),
+    beforeMount() {
+        this.$store.dispatch('loadRestaurants')
+    },
+    /*
   data() {
     return {
       restaurants: [{
@@ -43,12 +51,12 @@ export default {
       imgSrc: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Burger_King_Logo.svg/1024px-Burger_King_Logo.svg.png'
       }]
     }
-  },
+  },*/
   methods: {
     clickMethod() {
       console.log("fuck")
     } 
-  }
+  } 
 
 }
 </script>
