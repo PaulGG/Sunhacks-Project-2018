@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Oswald:700" rel="stylesheet">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    </head>
+    <body>
+        <div class = "center title">
+            Test Title
+        </div>
+        <div id="app">
+            
+            {{ message }}
+            <ul>
+                <li v-for="f in options">
+                    {{f.name}} has {{f.votes}} votes!
+                    <button v-on:click="voteFor(f)">Vote</button>
+                </li>
+            </ul>
+        </div>
+        
+
+        <script src="index.js"></script>
+    </body>
+</html>
