@@ -15,7 +15,7 @@
               <p class="title">{{ restaurant.name }}</p>
               <p class='subtitle'>Rating: {{ restaurant.rating }}</p>
               <p class='subtitle'>Review Count: {{restaurant.review_count}}</p>
-              <p><img v-bind:src="restaurant.img_URL" v-bind:alt="restaurant.name" width="100px" height="100px" style="border-radius: 20px;"/></p>
+              <p><img v-bind:src="restaurant.image_url" v-bind:alt="restaurant.name" width="200px" height="200px" style="border-radius: 20px;"/></p>
             </center>
           </div>
         </div>
