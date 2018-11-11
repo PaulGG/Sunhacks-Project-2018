@@ -4,7 +4,7 @@ from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
-from appserver import login
+#from appserver import login
 
 
 db = SQLAlchemy()
@@ -25,9 +25,9 @@ class Restaurant(db.Model):
             created_at=self.created_at.strftime('%Y-%m-%d %H:%M:%S')
         )
 
-@login.user_loader
-def load_user(id):
-    return User.query.get(id)
+#@login.user_loader
+#def load_user(id):
+#    return User.query.get(id)
 
 # User
 
@@ -35,8 +35,8 @@ class User(UserMixin, db.Model):
     __tablename__ = "users"
 
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(64), index=True, unique=True)
-    email = db.column(db.String(120), index=True, unique=True)
+    username = db.Column(db.String(64))
+    email = db.column(db.String(120))
     password_hash = db.Column(db.String(128))
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
