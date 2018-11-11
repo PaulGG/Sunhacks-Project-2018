@@ -8,6 +8,7 @@ from flask import Blueprint, jsonify, request
 from .models import db, Restaurant, User
 from flask_login import current_user, login_user
 from .yelp import request, API_HOST, SEARCH_PATH, API_KEY
+import random
 
 api = Blueprint('api', __name__)
 
@@ -41,14 +42,17 @@ def get_restaurant(location, distance, price):
      "price" : price   
     }
     )
+    if "error" in yelpstuff:
+        return jsonify({"error" : "Something went wrong with the api call :("})
     businesses = yelpstuff["businesses"]
     jsons = []
     keywords = ["alias", "name", "image_url", "url", "review_count", "rating"]
     # get the first 3 objects from the yelp api call.
     for i in range(3):
-        jsonObject = {} 
+        jsonObject = {}
+        ran = random.randint(0, len(businesses) - 1) 
         for word in keywords:
-            jsonObject[word] = businesses[i][word]
+            jsonObject[word] = businesses[ran][word]
         jsons.append(jsonObject)
     response = jsons
     #restaurants = Restaurant.query.all()

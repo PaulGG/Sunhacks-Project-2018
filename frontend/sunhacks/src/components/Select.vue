@@ -45,6 +45,9 @@ export default {
     console.log(this.$data.address)
     console.log(this.$data.price)
     console.log(this.$data.radius)
+    if (this.address == null) {
+      this.$router.replace("/")
+    }
     axios.get(`http://localhost:8080/api/restaurant/lookup/${this.$data.address}/${this.$data.radius}/${this.$data.price}`)
     .then(response => {
       this.restaurants = response.data
