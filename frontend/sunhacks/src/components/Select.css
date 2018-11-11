@@ -4,8 +4,8 @@ html, body {
     background-color: hsl(0, 0%, 29%)
 }
 
-.is-danger {
-    color: #B80C09;
+.red {
+    background-color: #B80C09;
 }
 
 .card {

@@ -1,9 +1,9 @@
 <template>  
 <div>  
-  <section class="hero is-danger is-bold">
+  <section class="hero red is-bold">
     <div class="hero-body">
       <div class="container has-text-centered">
-        <h2 class="title">Pick A Restaurant</h2>
+        <h2 class="redtitle">Pick A Restaurant</h2>
       </div>
     </div>
   </section>
