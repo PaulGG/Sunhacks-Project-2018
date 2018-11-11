@@ -72,6 +72,8 @@ def get_restaurant(location, distance, price):
         for word in keywords:
             if word == "location":
                 jsonObject["display_address"] = choice[word]["display_address"]
+                jsonObject["display_address_line_1"] = choice[word]["display_address"][0]
+                jsonObject["display_address_line_2"] = choice[word]["display_address"][1]
             else:
                 jsonObject[word] = choice[word]
         jsonObject["id"] = i
