@@ -8,6 +8,11 @@ html, body {
     background-color: #B80C09;
 }
 
+.redtitle {
+    color: #FFFFFF;
+    font-size: 50px
+}
+
 .card {
     height: 100%;
 }
