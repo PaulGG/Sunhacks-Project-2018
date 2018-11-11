@@ -20,8 +20,21 @@
           </div>
         </div>
       </div>
+  <div class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <section class="modal-card-body">
+        <p class='subtitle'>Street Address: {{ restaurant.display_address }}</p>
+        <p class='subtitle'>Phone Number: {{ restaurant.display_phone }}</p>
+        <p class="control">
+          <a class="button" @click="clickMethod()">View this restaurant on Yelp</a>
+        </p>
+      </section>
+    </div>
+  </div>
   </section>
-</div>  
+</div>
+
 </template> 
 <script>
 import router from '../router'
