@@ -15,7 +15,7 @@
                 <p class="title">Enter Location (PIN):</p>
                 <div class="columns is-centered is-vcentered">
                     <div class="column is-narrow is-centered">
-                        <input v-model="message" placeholder="Enter PIN">
+                        <input name="userInput" v-model="zipmessage" placeholder="Enter PIN">
                     </div>
                     <div class="column is-centered">
                         <div class="dropdown is-hoverable">
@@ -92,10 +92,18 @@
 
 <script>
 export default{
+    data:{
+        zipmessage:{
+            
+        },
+    },
     methods: {
         changePage() {
-            // TODOO: CHANGE
-            this.$router.push("Select")
+            
+            this.$router.push({
+                name: "Select",
+                params: { zipcode: zipmessage, price: 0, radius: 10000}
+            });
         }
     }
 }

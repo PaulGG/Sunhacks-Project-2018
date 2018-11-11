@@ -24,15 +24,23 @@
 </div>  
 </template> 
 <script>
+import router from '../router'
+
 import axios from 'axios'
 export default {
   data() {
     return {
       restaurants: [],
-      errors: []
+      errors: [],
+      address: '85281',
+      price: 1,
+      radius: 10000
     }
+    sharedData : ""
   },
   created() {
+    this.address = this.$route.params.zipmessage
+
     axios.get(`http://localhost:8080/api/restaurant/zip/32425/`)
     .then(response => {
       this.restaurants = response.data
