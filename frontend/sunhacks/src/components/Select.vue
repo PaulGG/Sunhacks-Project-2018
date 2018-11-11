@@ -40,41 +40,16 @@ export default {
       this.errors.push(e)
     })
   },
-    /*
-  data() {
-    return {
-      restaurants: [{
-      id: 1,
-      name: 'McDonalds',
-      created_at: new Date(),
-      imgSrc: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/McDonald%27s_Golden_Arches.svg/240px-McDonald%27s_Golden_Arches.svg.png'
-      }, {
-      id: 2,
-      name: 'Taco Bell',
-      created_at: new Date(),
-      imgSrc: 'https://www.tacobell.com/medias/Taco-Bell-Logo-Bell-Only2.svg?context=bWFzdGVyfGltYWdlc3wyNTk0fGltYWdlL3N2Zyt4bWx8aW1hZ2VzL2gxNi9oM2YvODgyNTMyNjE3NDIzOC5zdmd8MTg2NWZhODE0YTA1ZWNiZWMyMzc5YmQ3MDQzN2U1OTJjYmUwMzFhNTAzMGRhNWNjODFkMGIyOTE1OTJmZTE0MQ'
-      }, {
-      id: 3,
-      name: 'Burger King',
-      created_at: new Date(),
-      imgSrc: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Burger_King_Logo.svg/1024px-Burger_King_Logo.svg.png'
-      }]
-    }
-  },*/
   methods: {
     clickMethod() {
       //TODO change functionality to be not wrong
       //this.$router.push('/')
       //beforeMount()
     }
-  },
-  beforeMount() {
-    axios
   }
-
 }
 </script>
 
-<!--<style>
+-<style>
   @import 'Select.css';
 </style>

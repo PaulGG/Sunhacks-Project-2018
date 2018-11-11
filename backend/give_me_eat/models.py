@@ -15,13 +15,22 @@ class Restaurant(db.Model):
     __tablename__ = "restaurants"
 
     id = db.Column(db.Integer, primary_key=True)
+    alias: db.Column(db.Text)
     name = db.Column(db.Text)
+    # TODO: is there a URL option?
+    image_url = db.Column(db.Text)
+    review_count = db.Column(db.Integer)
+    rating = db.Column(db.Integer)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
     def to_dict(self):
         return dict(
-            id=self.id,
-            name=self.name,
+            id = self.id,
+            alias = self.alias,
+            name = self.name,
+            image_url = self.image_url,
+            review_count = self.review_count,
+            rating = self.rating,
             created_at=self.created_at.strftime('%Y-%m-%d %H:%M:%S')
         )
 
