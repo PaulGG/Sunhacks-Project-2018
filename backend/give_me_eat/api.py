@@ -16,16 +16,29 @@ def say_hello(name):
     response = { 'msg': "Hello {}".format(name) }
     return jsonify(response)
 
-@api.route("/restaurant/zip/<int:zipcode>/")
-def get_restaurant(zipcode):
+@api.route("/restaurant/lookup/<string:location>/<int:distance>/<int:price>")
+@api.route("/restaurant/lookup/<int:location>/<int:distance>/<int:price>")
+def get_restaurant(location, distance, price):
+    distance = int(distance * 1609.344)
+    print(distance)
+    print(location)
+    print(price)
+    switcher = {
+        1:"1,2,3,4",
+        2:"2,1,3,4",
+        3:"3,2,1,4",
+        4:"4,3,2,1"
+    }
+    price = switcher[price]
+
     yelpstuff = request(API_HOST, SEARCH_PATH, API_KEY, 
     {
-     "location" : "85281",
-     "radius" : "8000", 
+     "location" : location,
+     "radius" : distance, 
      "sort_by" : "rating", 
      "open_now" : "true",
      "term" : "restaurants",
-     "price" : "1,2,3,4"   
+     "price" : price   
     }
     )
     businesses = yelpstuff["businesses"]
@@ -33,7 +46,7 @@ def get_restaurant(zipcode):
     keywords = ["alias", "name", "image_url", "url", "review_count", "rating"]
     # get the first 3 objects from the yelp api call.
     for i in range(3):
-        jsonObject = {}
+        jsonObject = {} 
         for word in keywords:
             jsonObject[word] = businesses[i][word]
         jsons.append(jsonObject)

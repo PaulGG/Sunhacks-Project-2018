@@ -32,16 +32,20 @@ export default {
     return {
       restaurants: [],
       errors: [],
-      address: '85281',
-      price: 1,
-      radius: 10000
+      address: null,
+      price: null,
+      radius: null
     }
     sharedData : ""
   },
   created() {
-    this.address = this.$route.params.zipmessage
-
-    axios.get(`http://localhost:8080/api/restaurant/zip/32425/`)
+    this.address = this.$route.params.address
+    this.price = this.$route.params.price
+    this.radius = this.$route.params.radius
+    console.log(this.$data.address)
+    console.log(this.$data.price)
+    console.log(this.$data.radius)
+    axios.get(`http://localhost:8080/api/restaurant/lookup/${this.$data.address}/${this.$data.radius}/${this.$data.price}`)
     .then(response => {
       this.restaurants = response.data
     })
