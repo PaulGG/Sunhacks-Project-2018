@@ -4,8 +4,8 @@
     <section class="hero red is-bold is-medium">
     <div class="hero-body">
       <div class="container has-text-centered">
-        <h2 class="redtitle">Welcome to Give-me-eat.com!</h2>
-        <h3 clas="subtitle">Tired of not knowing where to go to eat?  We've got you covered!  Enter your location below and we'll give you some options for where to eat.</h3>
+        <h2 class="redtitle">Welcome to Give Me Eat!</h2>
+        <h3 clas="subtitle">Tired of not knowing where to go to eat?  We've got you covered!  Enter your location below and we'll give you some suggestions!</h3>
       </div>
     </div>
   </section>
@@ -37,7 +37,7 @@
                     <input class="input" v-model="zipmessage" placeholder="Enter Address/ZIP">
                 </p>
                 <p class="control">
-                    <a class="button" @click="changePage()">Give me eat!</a>
+                    <a class="button" @click="changePage()">Give Me Eat!</a>
                 </p>
             </div>
         </div>

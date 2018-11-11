@@ -15,23 +15,22 @@
               <p class="title">{{ restaurant.name }}</p>
               <p class='subtitle'>Rating: {{ restaurant.rating }}</p>
               <p class='subtitle'>Review Count: {{restaurant.review_count}}</p>
-              <p><img v-bind:src="restaurant.image_url" v-bind:alt="restaurant.name" width="200px" height="200px" style="border-radius: 20px;"/></p>
+              <figure class="image is-128x128">
+                <img v-bind:src="restaurant.image_url" v-bind:alt="restaurant.name"/>
+              </figure>
             </center>
+            <footer class="card-footer">
+              <p class='card-footer-item'>Address: {{ restaurant.display_address_line_1 }} {{ restaurant.display_address_line_2 }}</p>
+              <p class='card-footer-item'>Phone: {{restaurant.display_phone}}</p>
+              <p class="card-footer-item">
+                <span>
+                  View on <a v-bind:href="restaurant.url">Yelp</a>
+                </span>
+              </p>
+            </footer>
           </div>
         </div>
       </div>
-  <div class="modal">
-    <div class="modal-background"></div>
-    <div class="modal-card">
-      <section class="modal-card-body">
-        <p class='subtitle'>Street Address: {{ restaurant.display_address }}</p>
-        <p class='subtitle'>Phone Number: {{ restaurant.display_phone }}</p>
-        <p class="control">
-          <a class="button" @click="clickMethod()">View this restaurant on Yelp</a>
-        </p>
-      </section>
-    </div>
-  </div>
   </section>
 </div>
 
@@ -47,7 +46,9 @@ export default {
       errors: [],
       address: null,
       price: null,
-      radius: null
+      radius: null,
+      whichModal: null,
+      showModal: false
     }
     sharedData : ""
   },
@@ -71,11 +72,7 @@ export default {
   },
   methods: {
     clickMethod(id) {
-      //console.log(id)
       
-      //TODO change functionality to be not wrong
-      //this.$router.push('/')
-      //beforeMount()
     }
   }
 }
