@@ -7,25 +7,39 @@
       </div>
     </div>
   </section>
-  <a class="button is-rounded" @click="log()">Go!</a>
   <section class="section has-background-grey-dark is-large">
-      <div class="columns">
+      <div class="columns" v-if="restaurants && restaurants.length">
         <div class="column" v-for="restaurant in restaurants" v-bind:key="restaurant.id">
           <div class="card" @click="clickMethod()">
             <center>
-              <p class="title">{{ restaurant.name}}</p>
-              <!--<p class='subtitle'>{{ restaurant.created_at }}</p>-->
-              <!--<p><img v-bind:src="restaurant.imgSrc" v-bind:alt="restaurant.name" width="100px" height="100px" style="border-radius: 20px;"/></p>-->
+              <p class="title">{{ restaurant.name }}</p>
+              <p class='subtitle'>{{ restaurant.created_at }}</p>
+              <p><img v-bind:src="restaurant.imgSrc" v-bind:alt="restaurant.name" width="100px" height="100px" style="border-radius: 20px;"/></p>
             </center>
           </div>
         </div>
       </div>
   </section>
 </div>  
-</template>  
+</template> 
 <script>
-import { mapState } from 'vuex'
-export default { 
+import axios from 'axios'
+export default {
+  data() {
+    return {
+      restaurants: [],
+      errors: []
+    }
+  },
+  created() {
+    axios.get(`http://localhost:8080/api/restaurant/zip/32425/`)
+    .then(response => {
+      this.restaurants = response.data
+    })
+    .catch(e => {
+      this.errors.push(e)
+    })
+  },
     /*
   data() {
     return {
@@ -52,15 +66,15 @@ export default {
       //TODO change functionality to be not wrong
       //this.$router.push('/')
       //beforeMount()
-    }, 
-    log() {
-      console.log(restaurants)
     }
-  } 
+  },
+  beforeMount() {
+    axios
+  }
 
 }
 </script>
 
-<style>
+<!--<style>
   @import 'Select.css';
 </style>

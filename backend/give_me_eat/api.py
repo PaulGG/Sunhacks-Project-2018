@@ -18,7 +18,7 @@ def say_hello(name):
 @api.route("/restaurant/zip/<int:zipcode>/")
 def get_restaurant(zipcode):
     restaurants = Restaurant.query.all()
-    response = { "restaurants": [r.to_dict() for r in restaurants] }
+    response = [r.to_dict() for r in restaurants]
     return jsonify(response)
 
 @api.route("/restaurant/id/<int:id>")
