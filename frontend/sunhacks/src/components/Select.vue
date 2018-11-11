@@ -10,7 +10,7 @@
   <section class="section has-background-grey-dark is-large">
       <div class="columns" v-if="restaurants && restaurants.length">
         <div class="column" v-for="restaurant in restaurants" v-bind:key="restaurant.id">
-          <div class="card" @click="clickMethod()">
+          <div class="card mouseover" @click="clickMethod()">
             <center>
               <p class="title">{{ restaurant.name }}</p>
               <p class='subtitle'>Rating: {{ restaurant.rating }}</p>

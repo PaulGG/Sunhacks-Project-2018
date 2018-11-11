@@ -21,6 +21,7 @@ def say_hello(name):
 @api.route("/restaurant/lookup/<int:location>/<int:distance>/<int:price>")
 def get_restaurant(location, distance, price):
     distance = int(distance * 1609.344)
+    if distance > 40000: distance = 40000
     print(distance)
     print(location)
     print(price)
@@ -30,6 +31,7 @@ def get_restaurant(location, distance, price):
         3:"3,2,1,4",
         4:"4,3,2,1"
     }
+    originalprice = price
     price = switcher[price]
 
     yelpstuff = request(API_HOST, SEARCH_PATH, API_KEY, 
@@ -48,11 +50,27 @@ def get_restaurant(location, distance, price):
     jsons = []
     keywords = ["alias", "name", "image_url", "url", "review_count", "rating"]
     # get the first 3 objects from the yelp api call.
+    pricematch = []
+    pricenomatch = [] 
+    for place in businesses:
+        if len(place["price"]) == originalprice:
+            pricematch.append(place)
+        else:
+            pricenomatch.append(place)
+    print(pricematch)
+    for i in range(10): print("LOLOLOL")
+    print(pricenomatch)
+    jsons = []
     for i in range(3):
         jsonObject = {}
-        ran = random.randint(0, len(businesses) - 1) 
+        if len(pricematch) > 0:
+            choice = random.choice(pricematch)
+            pricematch.remove(choice)
+        else:
+            choice = random.choice(pricenomatch)
+            pricenomatch.remove(choice)
         for word in keywords:
-            jsonObject[word] = businesses[ran][word]
+            jsonObject[word] = choice[word]
         jsons.append(jsonObject)
     response = jsons
     #restaurants = Restaurant.query.all()
