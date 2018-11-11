@@ -12,30 +12,30 @@
   <section class="section">
         <div class="card">
             <center>
-                <p class="title">Enter Location (PIN):</p>
+                <p class="title">Enter Information:</p>
                 <div class="columns is-centered is-vcentered">
                     <div class="column is-narrow is-centered">
-                        <input v-model="zipmessage" placeholder="Enter PIN">
+                        <input v-model="zipmessage" placeholder="Enter Address/ZIP">
                         <p>{{zipmessage}}</p>
                     </div>
                     <div class="column is-centered">
                         <div class="select">
-                            <select>
-                                <option>1 mile</option>
-                                <option>2 miles</option>
-                                <option>5 miles</option>
-                                <option>10 miles</option>
-                                <option>15 miles</option>
-                                <option>20 miles</option>
-                                <option>25 miles</option>
+                            <select v-model="radius">
+                                <option value="1">1 mile</option>
+                                <option value="2">2 miles</option>
+                                <option value="5">5 miles</option>
+                                <option value="10">10 miles</option>
+                                <option value="15">15 miles</option>
+                                <option value="20">20 miles</option>
+                                <option value="25">25 miles</option>
                             </select>
                         </div>
                         <div class="select">
-                            <select>
-                                <option>$</option>
-                                <option>$$</option>
-                                <option>$$$</option>
-                                <option>$$$$</option>
+                            <select v-model="price">
+                                <option value="1">$</option>
+                                <option value="2">$$</option>
+                                <option value="3">$$$</option>
+                                <option value="4">$$$$</option>
                             </select>
                         </div>
                     </div>
