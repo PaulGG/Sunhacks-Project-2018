@@ -7,11 +7,16 @@ const state = {
     // single source of data
     restaurants: []
 }
+
+import {getRestaurant, getRestaurants} from '@/api'
   
 const actions = {  
     // asynchronous operations
-    loadRestaurants(context) {
-        // return something
+    loadRestaurants(context, zipcode) {
+        return getRestaurants(zipcode).then((response) => context.commit('setRestaurants', { restaurants: response }))
+    }, 
+    loadRestaurant(context, id) {
+        return getRestaurant(id).then((response) => context.commit('setRestaurant', {restaurant: response}))
     }
 
 }

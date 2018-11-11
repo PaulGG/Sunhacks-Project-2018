@@ -1,38 +1,65 @@
 <template>  
 <div>  
-  <section class="hero is-danger is-bold is-medium">
+  <section class="hero is-danger is-bold">
     <div class="hero-body">
       <div class="container has-text-centered">
-        <h2 class="title">Welcome to Give-me-eat.com!</h2>
-        <h3 clas="subtitle">Tired of not knowing where to go to eat?  We've got you covered!  Enter your location below and we'll give you some options for where to eat.</h3>
+        <h2 class="title">Pick A Restaurant</h2>
       </div>
     </div>
   </section>
-  <section class="section">
-        <div class="card">
+  <section class="section has-background-grey-dark is-large">
+      <div class="columns">
+        <div class="column" v-for="restaurant in restaurants" v-bind:key="restaurant.id">
+          <div class="card" @click="clickMethod()">
             <center>
-                <p class="title">Enter Location (PIN):</p>
-                <div class="columns is-centered">
-                    <div class="column is-one-fifth">
-                        <input v-model="message" placeholder="Enter PIN">
-                    </div>
-                    <div class="column is-one-fifth">
-                        <a class="button is-rounded" @click="changePage()">Go!</a>
-                    </div>
-                </div>
+              <p class="title">{{ restaurant.name}}</p>
+              <p class='subtitle'>{{ restaurant.created_at.toDateString() }}</p>
+              <p><img v-bind:src="restaurant.imgSrc" v-bind:alt="restaurant.name" width="100px" height="100px" style="border-radius: 20px;"/></p>
             </center>
+          </div>
         </div>
+      </div>
   </section>
 </div>  
 </template>  
-
 <script>
-export default{
-    methods: {
-        changePage() {
-            this.$router.push('/')
-        }
+import { mapState } from 'vuex'
+export default { 
+    computed: mapState({
+        restaurants: state => state.restaurants
+    }),
+    beforeMount() {
+        this.$store.dispatch('loadRestaurants', 85281)
+    },
+    /*
+  data() {
+    return {
+      restaurants: [{
+      id: 1,
+      name: 'McDonalds',
+      created_at: new Date(),
+      imgSrc: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/McDonald%27s_Golden_Arches.svg/240px-McDonald%27s_Golden_Arches.svg.png'
+      }, {
+      id: 2,
+      name: 'Taco Bell',
+      created_at: new Date(),
+      imgSrc: 'https://www.tacobell.com/medias/Taco-Bell-Logo-Bell-Only2.svg?context=bWFzdGVyfGltYWdlc3wyNTk0fGltYWdlL3N2Zyt4bWx8aW1hZ2VzL2gxNi9oM2YvODgyNTMyNjE3NDIzOC5zdmd8MTg2NWZhODE0YTA1ZWNiZWMyMzc5YmQ3MDQzN2U1OTJjYmUwMzFhNTAzMGRhNWNjODFkMGIyOTE1OTJmZTE0MQ'
+      }, {
+      id: 3,
+      name: 'Burger King',
+      created_at: new Date(),
+      imgSrc: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Burger_King_Logo.svg/1024px-Burger_King_Logo.svg.png'
+      }]
     }
+  },*/
+  methods: {
+    clickMethod() {
+      //TODO change functionality to be not wrong
+      this.$router.push('/')
+      //beforeMount()
+    } 
+  } 
+
 }
 </script>
 
