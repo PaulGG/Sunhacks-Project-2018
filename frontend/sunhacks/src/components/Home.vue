@@ -27,11 +27,12 @@
 </template>  
 
 <script>
+import { mapState } from 'vuex'
 export default{
     methods: {
         changePage() {
-            this.$router.push('/select')
-            
+            // TODOO: CHANGE
+            this.$router.push("Select")
         }
     }
 }

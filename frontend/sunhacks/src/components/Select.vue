@@ -7,14 +7,15 @@
       </div>
     </div>
   </section>
+  <a class="button is-rounded" @click="log()">Go!</a>
   <section class="section has-background-grey-dark is-large">
       <div class="columns">
         <div class="column" v-for="restaurant in restaurants" v-bind:key="restaurant.id">
           <div class="card" @click="clickMethod()">
             <center>
               <p class="title">{{ restaurant.name}}</p>
-              <p class='subtitle'>{{ restaurant.created_at.toDateString() }}</p>
-              <p><img v-bind:src="restaurant.imgSrc" v-bind:alt="restaurant.name" width="100px" height="100px" style="border-radius: 20px;"/></p>
+              <!--<p class='subtitle'>{{ restaurant.created_at }}</p>-->
+              <!--<p><img v-bind:src="restaurant.imgSrc" v-bind:alt="restaurant.name" width="100px" height="100px" style="border-radius: 20px;"/></p>-->
             </center>
           </div>
         </div>
@@ -25,12 +26,6 @@
 <script>
 import { mapState } from 'vuex'
 export default { 
-    computed: mapState({
-        restaurants: state => state.restaurants
-    }),
-    beforeMount() {
-        this.$store.dispatch('loadRestaurants', 85281)
-    },
     /*
   data() {
     return {
@@ -55,9 +50,12 @@ export default {
   methods: {
     clickMethod() {
       //TODO change functionality to be not wrong
-      this.$router.push('/')
+      //this.$router.push('/')
       //beforeMount()
-    } 
+    }, 
+    log() {
+      console.log(restaurants)
+    }
   } 
 
 }
