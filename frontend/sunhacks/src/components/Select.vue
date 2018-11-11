@@ -10,7 +10,7 @@
   <section class="section has-background-grey-dark is-large">
       <div class="columns" v-if="restaurants && restaurants.length">
         <div class="column" v-for="restaurant in restaurants" v-bind:key="restaurant.id">
-          <div class="card mouseover" @click="clickMethod()">
+          <div class="card mouseover" @click="clickMethod(restaurant.id)">
             <center>
               <p class="title">{{ restaurant.name }}</p>
               <p class='subtitle'>Rating: {{ restaurant.rating }}</p>
@@ -57,7 +57,9 @@ export default {
     })
   },
   methods: {
-    clickMethod() {
+    clickMethod(id) {
+      //console.log(id)
+      
       //TODO change functionality to be not wrong
       //this.$router.push('/')
       //beforeMount()

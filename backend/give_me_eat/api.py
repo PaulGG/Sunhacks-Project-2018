@@ -48,7 +48,7 @@ def get_restaurant(location, distance, price):
         return jsonify({"error" : "Something went wrong with the api call :("})
     businesses = yelpstuff["businesses"]
     jsons = []
-    keywords = ["alias", "name", "image_url", "url", "review_count", "rating"]
+    keywords = ["alias", "name", "image_url", "url", "review_count", "rating", "location", "display_phone"]
     # get the first 3 objects from the yelp api call.
     pricematch = []
     pricenomatch = [] 
@@ -61,7 +61,7 @@ def get_restaurant(location, distance, price):
     for i in range(10): print("LOLOLOL")
     print(pricenomatch)
     jsons = []
-    for i in range(3):
+    for i in range(1, 4):
         jsonObject = {}
         if len(pricematch) > 0:
             choice = random.choice(pricematch)
@@ -70,7 +70,11 @@ def get_restaurant(location, distance, price):
             choice = random.choice(pricenomatch)
             pricenomatch.remove(choice)
         for word in keywords:
-            jsonObject[word] = choice[word]
+            if word == "location":
+                jsonObject["display_address"] = choice[word]["display_address"]
+            else:
+                jsonObject[word] = choice[word]
+        jsonObject["id"] = i
         jsons.append(jsonObject)
     response = jsons
     #restaurants = Restaurant.query.all()
