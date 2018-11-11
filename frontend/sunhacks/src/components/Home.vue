@@ -19,66 +19,24 @@
                         <p>{{zipmessage}}</p>
                     </div>
                     <div class="column is-centered">
-                        <div class="dropdown is-hoverable">
-                            <div class="dropdown-trigger">
-                                <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                                <span>Distance</span>
-                                <span class="icon is-small">
-                                    <i class="fas fa-sort-down" aria-hidden="true"></i>
-                                </span>
-                                </button>
-                            </div>
-                            <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                                <div class="dropdown-content">
-                                    <a class="dropdown-item">
-                                        1 mile
-                                    </a>
-                                    <a class="dropdown-item">
-                                        2 miles
-                                    </a>
-                                    <a class="dropdown-item is-active">
-                                        5 miles
-                                    </a>
-                                    <a class="dropdown-item">
-                                        10 miles
-                                    </a>
-                                    <a class="dropdown-item">
-                                        15 miles
-                                    </a>
-                                    <a class="dropdown-item">
-                                        20 miles
-                                    </a>
-                                    <a class="dropdown-item">
-                                        25 miles
-                                    </a>
-                                </div>
-                            </div>
+                        <div class="select">
+                            <select>
+                                <option>1 mile</option>
+                                <option>2 miles</option>
+                                <option>5 miles</option>
+                                <option>10 miles</option>
+                                <option>15 miles</option>
+                                <option>20 miles</option>
+                                <option>25 miles</option>
+                            </select>
                         </div>
-                        <div class="dropdown is-hoverable">
-                            <div class="dropdown-trigger">
-                                <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                                <span>Price</span>
-                                <span class="icon is-small">
-                                    <i class="fas fa-sort-down" aria-hidden="true"></i>
-                                </span>
-                                </button>
-                            </div>
-                            <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                                <div class="dropdown-content">
-                                    <a class="dropdown-item is-active">
-                                        $
-                                    </a>
-                                    <a class="dropdown-item">
-                                        $$
-                                    </a>
-                                    <a class="dropdown-item">
-                                        $$$
-                                    </a>
-                                    <a class="dropdown-item">
-                                        $$$$
-                                    </a>
-                                </div>
-                            </div>
+                        <div class="select">
+                            <select>
+                                <option>$</option>
+                                <option>$$</option>
+                                <option>$$$</option>
+                                <option>$$$$</option>
+                            </select>
                         </div>
                     </div>
                     <div class="column is-one-fifth">
