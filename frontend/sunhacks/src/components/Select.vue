@@ -13,8 +13,9 @@
           <div class="card" @click="clickMethod()">
             <center>
               <p class="title">{{ restaurant.name }}</p>
-              <p class='subtitle'>{{ restaurant.created_at }}</p>
-              <p><img v-bind:src="restaurant.imgSrc" v-bind:alt="restaurant.name" width="100px" height="100px" style="border-radius: 20px;"/></p>
+              <p class='subtitle'>Rating: {{ restaurant.rating }}</p>
+              <p class='subtitle'>Review Count: {{restaurant.review_count}}</p>
+              <p><img v-bind:src="restaurant.img_URL" v-bind:alt="restaurant.name" width="100px" height="100px" style="border-radius: 20px;"/></p>
             </center>
           </div>
         </div>
